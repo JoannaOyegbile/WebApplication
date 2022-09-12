@@ -12,4 +12,6 @@ public interface MusicRepo extends JpaRepository<Music, Long>{
 
 	//SELECT * FROM music WHERE artist_name = ?1
 		List<Music> findMusicByArtistName(String artistName);
+		
+	findMusicByReleaseDate(String releaseDate);
 }
