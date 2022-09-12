@@ -10,5 +10,6 @@ import com.BAE.main.entities.Music;
 @Repository
 public interface MusicRepo extends JpaRepository<Music, Long>{
 
-	findMusicByArtistName(String artistName);
+	//SELECT * FROM music WHERE artist_name = ?1
+		List<Music> findMusicByArtistName(String artistName);
 }
