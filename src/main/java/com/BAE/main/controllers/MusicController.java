@@ -38,4 +38,11 @@ public class MusicController {
 		public List<Music> getAll(){
 			return service.getAll();
 		}
+		
+		// Put request (UPDATE)
+		@PutMapping("/update/{id}")
+		public ResponseEntity<Music> update(@PathVariable("id") long id, @RequestBody Music input) {
+			return new ResponseEntity<Music> (service.update(id, input), HttpStatus.ACCEPTED);
+		}
+		
 }
