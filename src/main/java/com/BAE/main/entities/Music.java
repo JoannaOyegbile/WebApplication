@@ -31,6 +31,16 @@ public class Music {
 	@Column(nullable = false)
 	private String releaseDate; 
 	
+	public Music(long id, String artistName, String songName, String genre, String releaseDate) {
+		super();
+		this.id = id;
+		this.artistName = artistName;
+		this.songName = songName;
+		this.genre = genre;
+		this.releaseDate = releaseDate;
+	}
+	
+	
 	public long getId() {
 		return id;
 	}
