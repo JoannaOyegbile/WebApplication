@@ -11,10 +11,11 @@ import com.BAE.main.entities.Music;
 public interface MusicRepo extends JpaRepository<Music, Long>{
 
 	//SELECT * FROM music WHERE artist_name = ?1
-		List<Music> findMusicByArtistName(String artistName);
+	List<Music> findMusicByArtistName(String artistName);
 		
 	//SELECT * FROM music WHERE release_date= ?1
-		List<Music> findMusicByReleaseDate(String releaseDate);
+	List<Music> findMusicByReleaseDate(String releaseDate);
 		
-		List<Music> findMusicByGenre(String genre);
+	//SELECT * FROM music WHERE genre =?1
+	List<Music> findMusicByGenre(String genre);
 }
