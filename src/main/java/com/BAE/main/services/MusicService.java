@@ -27,6 +27,8 @@ public class MusicService {
 	public Music getById(long id) {
 		return repo.findById(id).orElseThrow(MusicNotFoundException::new);
 	}
-	
+	public List<Music> getByArtistName(String artistName) {
+		return repo.findMusicByArtistName(artistName);
+	}
 
 }
