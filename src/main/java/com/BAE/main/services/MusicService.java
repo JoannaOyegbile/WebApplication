@@ -35,5 +35,9 @@ public class MusicService {
 		return repo.findMusicByReleaseDate(releaseDate);
 	}
 	
+	public List<Music> getByGenre(String genre) {
+		return repo.findMusicByGenre(genre);
+	}
+	
 
 }
