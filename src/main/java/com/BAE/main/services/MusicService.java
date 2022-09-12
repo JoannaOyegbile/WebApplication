@@ -39,5 +39,12 @@ public class MusicService {
 		return repo.findMusicByGenre(genre);
 	}
 	
+	public Music update(long id, Music input) {
+		Music existing = repo.findById(id).orElseThrow(MusicNotFoundException::new);
+
+		
+		
+		return repo.saveAndFlush(existing);
+	}
 
 }
