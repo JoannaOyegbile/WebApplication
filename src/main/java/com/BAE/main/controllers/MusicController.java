@@ -45,4 +45,10 @@ public class MusicController {
 			return new ResponseEntity<Music> (service.update(id, input), HttpStatus.ACCEPTED);
 		}
 		
+		// Delete request (DELETE)
+		@DeleteMapping("/delete/{id}")
+	    public boolean delete(@PathVariable long id) {
+	        return service.delete(id);
+	    }
+		
 }
