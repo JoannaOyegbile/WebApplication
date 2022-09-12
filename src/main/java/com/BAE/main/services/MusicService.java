@@ -16,5 +16,9 @@ public class MusicService {
 		super();
 		this.repo = repo;
 	}
+	
+	public Music create(Music input) {
+		return repo.saveAndFlush(input);
+	}
 
 }
