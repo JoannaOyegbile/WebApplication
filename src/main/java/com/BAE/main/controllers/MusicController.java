@@ -49,6 +49,12 @@ public class MusicController {
 			return service.getByArtistName(artistName);
 		}
 		
+		@GetMapping("/getByReleaseDate/{releaseDate}")
+		public List<Music> getByReleaseDate(@PathVariable String releaseDate) {
+			return service.getByReleaseDate(releaseDate);
+		}
+		
+		
 		// Put request (UPDATE)
 		@PutMapping("/update/{id}")
 		public ResponseEntity<Music> update(@PathVariable("id") long id, @RequestBody Music input) {
