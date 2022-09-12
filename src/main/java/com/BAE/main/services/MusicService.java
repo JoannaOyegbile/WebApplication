@@ -24,5 +24,9 @@ public class MusicService {
 	public List<Music> getAll(){
 		return repo.findAll();
 	}
+	public Music getById(long id) {
+		return repo.findById(id).orElseThrow(MusicNotFoundException::new);
+	}
+	
 
 }
