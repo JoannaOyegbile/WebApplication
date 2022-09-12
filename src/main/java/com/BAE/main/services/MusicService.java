@@ -30,5 +30,10 @@ public class MusicService {
 	public List<Music> getByArtistName(String artistName) {
 		return repo.findMusicByArtistName(artistName);
 	}
+	
+	public List<Music> getByReleaseDate(String releaseDate) {
+		return repo.findMusicByReleaseDate(releaseDate);
+	}
+	
 
 }
