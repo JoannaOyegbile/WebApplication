@@ -42,7 +42,10 @@ public class MusicService {
 	public Music update(long id, Music input) {
 		Music existing = repo.findById(id).orElseThrow(MusicNotFoundException::new);
 
-		
+		existing.setArtistName(input.getArtistName());
+		existing.setSongName(input.getSongName());
+		existing.setGenre(input.getGenre());
+		existing.setReleaseDate(input.getReleaseDate());
 		
 		return repo.saveAndFlush(existing);
 	}
