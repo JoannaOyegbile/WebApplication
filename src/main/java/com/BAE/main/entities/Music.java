@@ -2,6 +2,8 @@ package com.BAE.main.entities;
 
 
 
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -67,5 +69,23 @@ public class Music {
 
 	public void setReleaseDate(String releaseDate) {
 		this.releaseDate = releaseDate;
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(artistName, genre, id, releaseDate, songName);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Music other = (Music) obj;
+		return Objects.equals(artistName, other.artistName) && Objects.equals(genre, other.genre) && id == other.id
+				&& Objects.equals(releaseDate, other.releaseDate) && Objects.equals(songName, other.songName);
 	}
 }
