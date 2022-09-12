@@ -1,7 +1,5 @@
 package com.BAE.main.entities;
 
-
-
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -9,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
 
 @Entity
 public class Music {
@@ -30,6 +29,9 @@ public class Music {
     
 	@Column(nullable = false)
 	private String releaseDate; 
+	
+	
+	public Music() {}
 	
 	public Music(String artistName, String songName, String genre, String releaseDate) {
 		super();
