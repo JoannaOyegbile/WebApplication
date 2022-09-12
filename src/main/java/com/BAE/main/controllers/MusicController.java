@@ -32,4 +32,10 @@ public class MusicController {
 		public ResponseEntity<Music> create(@RequestBody Music input) {
 			return new ResponseEntity<Music> (service.create(input), HttpStatus.CREATED);
 		} 
+		
+		// Get requests (READ)
+		@GetMapping("/getAll")
+		public List<Music> getAll(){
+			return service.getAll();
+		}
 }
