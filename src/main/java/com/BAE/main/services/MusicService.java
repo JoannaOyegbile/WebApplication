@@ -20,5 +20,9 @@ public class MusicService {
 	public Music create(Music input) {
 		return repo.saveAndFlush(input);
 	}
+	
+	public List<Music> getAll(){
+		return repo.findAll();
+	}
 
 }
