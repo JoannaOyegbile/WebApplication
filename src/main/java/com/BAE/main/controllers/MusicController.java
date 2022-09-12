@@ -28,43 +28,51 @@ public class MusicController {
 	}
 
 	// Post request (CREATE)
-		@PostMapping("/create")
-		public ResponseEntity<Music> create(@RequestBody Music input) {
-			return new ResponseEntity<Music> (service.create(input), HttpStatus.CREATED);
-		} 
-		
-		// Get requests (READ)
-		@GetMapping("/getAll")
-		public List<Music> getAll(){
-			return service.getAll();
-		}
-		
-		@GetMapping("/getById/{id}")
-		public ResponseEntity<Music> getById(@PathVariable long id) {
-			return new ResponseEntity<Music> (service.getById(id), HttpStatus.FOUND);
-		}
-		
-		@GetMapping("/getByArtistName/{artistName}")
-		public List<Music> getByArtistName(@PathVariable String artistName) {
-			return service.getByArtistName(artistName);
-		}
-		
-		@GetMapping("/getByReleaseDate/{releaseDate}")
-		public List<Music> getByReleaseDate(@PathVariable String releaseDate) {
-			return service.getByReleaseDate(releaseDate);
-		}
-		
-		
-		// Put request (UPDATE)
-		@PutMapping("/update/{id}")
-		public ResponseEntity<Music> update(@PathVariable("id") long id, @RequestBody Music input) {
-			return new ResponseEntity<Music> (service.update(id, input), HttpStatus.ACCEPTED);
-		}
-		
-		// Delete request (DELETE)
-		@DeleteMapping("/delete/{id}")
-	    public boolean delete(@PathVariable long id) {
-	        return service.delete(id);
-	    }
-		
+	@PostMapping("/create")
+	public ResponseEntity<Music> create(@RequestBody Music input) {
+		return new ResponseEntity<Music> (service.create(input), HttpStatus.CREATED);
+	} 
+
+	// Get requests (READ)
+	@GetMapping("/getAll")
+	public List<Music> getAll(){
+		return service.getAll();
+	}
+	
+	@GetMapping("/getById/{id}")
+	public ResponseEntity<Music> getById(@PathVariable long id) {
+		return new ResponseEntity<Music> (service.getById(id), HttpStatus.FOUND);
+	}
+	
+	@GetMapping("/getByArtistName/{artistName}")
+	public List<Music> getByArtistName(@PathVariable String artistName) {
+		return service.getByArtistName(artistName);
+	}
+	
+	@GetMapping("/getByReleaseDate/{releaseDate}")
+	public List<Music> getByReleaseDate(@PathVariable String releaseDate) {
+		return service.getByReleaseDate(releaseDate);
+	}
+	
+	@GetMapping("/getByGenre/{genre}")
+	public List<Music> getByGenre(@PathVariable String genre) {
+		return service.getByGenre(genre);
+	}
+	
+	// Put request (UPDATE)
+	@PutMapping("/update/{id}")
+	public ResponseEntity<Music> update(@PathVariable("id") long id, @RequestBody Music input) {
+		return new ResponseEntity<Music> (service.update(id, input), HttpStatus.ACCEPTED);
+	}
+	
+	// Delete request (DELETE)
+	@DeleteMapping("/delete/{id}")
+    public boolean delete(@PathVariable long id) {
+        return service.delete(id);
+    }
+
 }
+
+
+
+
