@@ -44,6 +44,11 @@ public class MusicController {
 			return new ResponseEntity<Music> (service.getById(id), HttpStatus.FOUND);
 		}
 		
+		@GetMapping("/getByArtistName/{artistName}")
+		public List<Music> getByArtistName(@PathVariable String artistName) {
+			return service.getByArtistName(artistName);
+		}
+		
 		// Put request (UPDATE)
 		@PutMapping("/update/{id}")
 		public ResponseEntity<Music> update(@PathVariable("id") long id, @RequestBody Music input) {
