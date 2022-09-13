@@ -18,4 +18,6 @@ public interface MusicRepo extends JpaRepository<Music, Long>{
 	
 	//SELECT * FROM music WHERE genre =?1
 	List<Music> findMusicByGenre(String genre);
+	
+	List<Music> findMusicBySongName(String songName);
 }
