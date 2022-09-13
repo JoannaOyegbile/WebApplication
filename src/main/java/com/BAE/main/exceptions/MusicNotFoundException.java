@@ -1,5 +1,8 @@
 package com.BAE.main.exceptions;
 
-public class MusicNotFoundException {
+import javax.persistence.EntityNotFoundException;
+
+public class MusicNotFoundException extends EntityNotFoundException {
+	
 
 }
