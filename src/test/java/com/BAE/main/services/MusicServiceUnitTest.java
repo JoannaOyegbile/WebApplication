@@ -1,6 +1,7 @@
 package com.BAE.main.services;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -114,5 +115,15 @@ public class MusicServiceUnitTest {
 		Mockito.when(repo.existsById(1L)).thenReturn(false);
 		assertTrue(service.delete(1L));
 	}
+	
+	@Test
+	public void deleteFalseTest() throws Exception{
+		
+		Mockito.when(repo.existsById(1L)).thenReturn(true);
+		assertFalse(service.delete(1L));
+				
+	}
+	
+	
 
 }
