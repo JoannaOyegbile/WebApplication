@@ -1,5 +1,6 @@
 package com.BAE.main.controllers;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
@@ -128,6 +129,15 @@ public class MusicControllerIntergrationTest {
 			.content(inputAsJSON))
 			.andExpect(status().isAccepted())
 			.andExpect(content().json(responseAsJSON));
+	}
+
+	@Test
+	public void deleteTest() throws Exception{
+		mvc.perform(delete("/project/delete/1")
+				.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk())
+				.andExpect(content().string("true"));
+				
 	}
 
 }
