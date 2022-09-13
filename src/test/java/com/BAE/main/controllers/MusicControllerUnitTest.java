@@ -156,4 +156,19 @@ public class MusicControllerUnitTest {
 				.andExpect(content().string("true"));
 				
 	}
+	
+	@Test
+	public void deleteFailTest() throws Exception{
+		
+		Mockito.when(service.delete(1L)).thenReturn(false);
+		
+		mvc.perform(delete("/project/delete/1")
+				.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk())
+				.andExpect(content().string("false"));
+				
+	}
+	
+	
+	
 }
