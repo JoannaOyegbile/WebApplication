@@ -2,6 +2,9 @@ package com.BAE.main.services;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +31,16 @@ public class MusicServiceUnitTest {
 		
 		Mockito.when(repo.saveAndFlush(input)).thenReturn(result);
 		assertEquals(result, service.create(input));
+		
+	}
+	
+	@Test
+	public void gellAllTest() throws Exception {
+		List<Music> result = new ArrayList<>();
+		result.add(new Music(1L, "Leona Lewis", "Bleeding Love", "R&B", "2007"));
+		
+		Mockito.when(repo.findAll()).thenReturn(result);
+		assertEquals(result, service.getAll());
 		
 	}
 
