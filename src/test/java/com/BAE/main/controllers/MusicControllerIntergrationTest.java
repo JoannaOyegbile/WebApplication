@@ -115,6 +115,20 @@ public class MusicControllerIntergrationTest {
 			.andExpect(status().isOk())
 			.andExpect(content().json(resultAsJSON));
 	}
+	
+	@Test
+	public void getBySongNameTest() throws Exception{
+		List<Music> result = new ArrayList<>();
+		result.add(new Music(1L, "Leona Lewis", "Bleeding Love", "R&B", "2007"));
+		
+		String resultAsJSON = mapper.writeValueAsString(result);
+		
+		mvc.perform(get("/project/getBySongName/Bleeding Love")
+			.contentType(MediaType.APPLICATION_JSON))
+			.andExpect(status().isOk())
+			.andExpect(content().json(resultAsJSON));
+	}
+
 	@Test
 	public void updateTest() throws Exception{
 		
