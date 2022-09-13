@@ -34,7 +34,7 @@ public class MusicControllerIntergrationTest {
 	private ObjectMapper mapper;
 	
 	@Test
-	public void createTest(){
+	public void createTest() throws Exception{
 		
 		Music input = new Music("Alessia Cara", "Scars to Your Beautiful", "Pop", "2015");
 		String inputAsJSON = mapper.writeValueAsString(input);
@@ -42,6 +42,11 @@ public class MusicControllerIntergrationTest {
 		Music response = new Music(2L, "Alessia Cara", "Scars to Your Beautiful", "Pop", "2015");
 		String responseAsJSON = mapper.writeValueAsString(response);
 		
+		mvc.perform(post("/project/create")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(inputAsJSON))
+				.andExpect(status().isCreated())
+				.andExpect(content().json(responseAsJSON));
 	}
 	
 	@Test
