@@ -97,6 +97,15 @@ public class MusicServiceUnitTest {
 	}
 	
 	@Test
+	public void getBySongName() throws Exception{
+		List<Music> result = new ArrayList<>();
+		result.add(new Music(1L, "Leona Lewis", "Bleeding Love", "R&B", "2007"));
+
+		Mockito.when(repo.findMusicBySongName("Bleeding Love")).thenReturn(result);
+		assertEquals(result, service.getBySongName("Bleeding Love"));
+	} 
+	
+	@Test
 	public void updateTest() throws Exception{
 		
 		Music input = new Music("The Greatest Showman", "Rewrite the Stars", "Musical", "2017");
