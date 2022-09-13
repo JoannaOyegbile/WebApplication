@@ -64,4 +64,21 @@ public class MusicControllerUnitTest {
 			.andExpect(status().isOk())
 			.andExpect(content().json(resultAsJSON));
 	}
+	
+	@Test
+	public void getByIdTest() throws Exception {
+		
+		Music result = new Music(1L, "Leona Lewis", "Bleeding Love", "R&B", "2007");
+		
+		String resultAsJSON = mapper.writeValueAsString(result);
+		
+		Mockito.when(service.getById(1L)).thenReturn(result);
+		
+		mvc.perform(get("/project/getById/1")
+			.contentType(MediaType.APPLICATION_JSON))
+			.andExpect(status().isFound())
+			.andExpect(content().json(resultAsJSON));
+	}
+	
+	
 }
