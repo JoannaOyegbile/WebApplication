@@ -65,5 +65,15 @@ public class MusicServiceUnitTest {
 		assertThrows(MusicNotFoundException.class, () -> service.getById(1L));
 		
 	}
+	
+	@Test
+	public void getByArtistNameTest() throws Exception{
+		List<Music> result = new ArrayList<>();
+		result.add(new Music(1L, "Leona Lewis", "Bleeding Love", "R&B", "2007"));
+		
+		Mockito.when(repo.findMusicByArtistName("Leona Lewis")).thenReturn(result);
+		assertEquals(result, service.getByArtistName("Leona Lewis"));
+		
+	}
 
 }
