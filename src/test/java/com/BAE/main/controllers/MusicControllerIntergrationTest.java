@@ -41,7 +41,7 @@ public class MusicControllerIntergrationTest {
 	@Test
 	public void getAllTest() throws Exception {
 		List<Music> result = new ArrayList<>();
-		result.add(new Music(1L, "The Greatest Showman", "This is me", "Musical", "2017"));
+		result.add(new Music(1L, "Leona Lewis", "Bleeding Love", "R&B", "2007"));
 		
 		String resultAsJSON = mapper.writeValueAsString(result);
 		
@@ -54,11 +54,11 @@ public class MusicControllerIntergrationTest {
 	@Test
 	public void getByIdTest() throws Exception {
 		
-		Music result = new Music(1L, "The Greatest Showman", "This is me", "Musical", "2017");
+		Music result = new Music(1L, "Leona Lewis", "Bleeding Love", "R&B", "2007");
 		
 		String resultAsJSON = mapper.writeValueAsString(result);
 		
-		mvc.perform(get("/music/getById/1")
+		mvc.perform(get("/project/getById/1")
 			.contentType(MediaType.APPLICATION_JSON))
 			.andExpect(status().isFound())
 			.andExpect(content().json(resultAsJSON));
@@ -67,11 +67,11 @@ public class MusicControllerIntergrationTest {
 	@Test
 	public void getByArtistNameTest() throws Exception{
 		List<Music> result = new ArrayList<>();
-		result.add(new Music(1L, "The Greatest Showman", "This is me", "Musical", "2017"));
+		result.add(new Music(1L, "Leona Lewis", "Bleeding Love", "R&B", "2007"));
 		
 		String resultAsJSON = mapper.writeValueAsString(result);
 		
-		mvc.perform(get("/music/getByArtistName/The Greatest Showman")
+		mvc.perform(get("/project/getByArtistName/Leona Lewis")
 			.contentType(MediaType.APPLICATION_JSON))
 			.andExpect(status().isOk())
 			.andExpect(content().json(resultAsJSON));
@@ -80,11 +80,24 @@ public class MusicControllerIntergrationTest {
 	@Test
 	public void getByReleaseDateTest() throws Exception{
 		List<Music> result = new ArrayList<>();
-		result.add(new Music(1L, "The Greatest Showman", "This is me", "Musical", "2017"));
+		result.add(new Music(1L, "Leona Lewis", "Bleeding Love", "R&B", "2007"));
 		
 		String resultAsJSON = mapper.writeValueAsString(result);
 		
-		mvc.perform(get("/music/getByReleaseDate/2017")
+		mvc.perform(get("/project/getByReleaseDate/2007")
+			.contentType(MediaType.APPLICATION_JSON))
+			.andExpect(status().isOk())
+			.andExpect(content().json(resultAsJSON));
+	}
+	
+	@Test
+	public void getByGenreTest() throws Exception{
+		List<Music> result = new ArrayList<>();
+		result.add(new Music(1L, "Leona Lewis", "Bleeding Love", "R&B", "2007"));
+		
+		String resultAsJSON = mapper.writeValueAsString(result);
+		
+		mvc.perform(get("/project/getByGenre/R&B")
 			.contentType(MediaType.APPLICATION_JSON))
 			.andExpect(status().isOk())
 			.andExpect(content().json(resultAsJSON));
