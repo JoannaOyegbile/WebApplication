@@ -39,7 +39,7 @@ public class MusicControllerIntergrationTest {
 	}
 	
 	@Test
-	public void gellAllTest() throws Exception {
+	public void getAllTest() throws Exception {
 		List<Music> result = new ArrayList<>();
 		result.add(new Music(1L, "The Greatest Showman", "This is me", "Musical", "2017"));
 		
@@ -48,6 +48,19 @@ public class MusicControllerIntergrationTest {
 		mvc.perform(get("/project/getAll")
 			.contentType(MediaType.APPLICATION_JSON))
 			.andExpect(status().isOk())
+			.andExpect(content().json(resultAsJSON));
+	}
+	
+	@Test
+	public void getByIdTest() throws Exception {
+		
+		Music result = new Music(1L, "The Greatest Showman", "This is me", "Musical", "2017");
+		
+		String resultAsJSON = mapper.writeValueAsString(result);
+		
+		mvc.perform(get("/music/getById/1")
+			.contentType(MediaType.APPLICATION_JSON))
+			.andExpect(status().isFound())
 			.andExpect(content().json(resultAsJSON));
 	}
 
