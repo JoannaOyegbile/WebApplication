@@ -2,6 +2,7 @@ package com.BAE.main.controllers;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -124,4 +125,23 @@ public class MusicControllerUnitTest {
 			.andExpect(status().isOk())
 			.andExpect(content().json(resultAsJSON));
 	}
+	
+	@Test
+	public void updateTest() throws Exception{
+		
+		Music input = new Music(1L,"The Greatest Showman", "Rewrite the Stars", "Musical", "2017");
+		String inputAsJSON = mapper.writeValueAsString(input);
+				
+		Music response = new Music(1L, "The Greatest Showman", "Rewrite the Stars", "Musical", "2017");
+		String responseAsJSON = mapper.writeValueAsString(response);
+				
+		Mockito.when(service.update(1L, input)).thenReturn(response);
+				
+		mvc.perform(put("/project/update/1")
+			.contentType(MediaType.APPLICATION_JSON)
+			.content(inputAsJSON))
+			.andExpect(status().isAccepted())
+			.andExpect(content().json(responseAsJSON));
+	}
+	
 }
