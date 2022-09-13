@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS `music`;
+
 CREATE TABLE `music`(
 	`id` BIGINT AUTO_INCREMENT,
 	`artist_name` VARCHAR(255) NOT NULL,
