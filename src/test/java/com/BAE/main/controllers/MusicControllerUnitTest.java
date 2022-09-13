@@ -80,5 +80,48 @@ public class MusicControllerUnitTest {
 			.andExpect(content().json(resultAsJSON));
 	}
 	
+	@Test
+	public void getByArtistNameTest() throws Exception{
+		List<Music> result = new ArrayList<>();
+		result.add(new Music(1L, "Leona Lewis", "Bleeding Love", "R&B", "2007"));
+		
+		String resultAsJSON = mapper.writeValueAsString(result);
+		
+		Mockito.when(service.getByArtistName("Leona Lewis")).thenReturn(result); 
+		
+		mvc.perform(get("/project/getByArtistName/Leona Lewis")
+			.contentType(MediaType.APPLICATION_JSON))
+			.andExpect(status().isOk())
+			.andExpect(content().json(resultAsJSON));
+	}
 	
+	@Test
+	public void getByReleaseDateTest() throws Exception{
+		List<Music> result = new ArrayList<>();
+		result.add(new Music(1L, "Leona Lewis", "Bleeding Love", "R&B", "2007"));
+		
+		String resultAsJSON = mapper.writeValueAsString(result);
+		
+		Mockito.when(service.getByReleaseDate("2007")).thenReturn(result);
+		
+		mvc.perform(get("/project/getByReleaseDate/2007")
+			.contentType(MediaType.APPLICATION_JSON))
+			.andExpect(status().isOk())
+			.andExpect(content().json(resultAsJSON));
+	}
+	
+	@Test
+	public void getByGenreTest() throws Exception{
+		List<Music> result = new ArrayList<>();
+		result.add(new Music(1L, "Leona Lewis", "Bleeding Love", "R&B", "2007"));
+		
+		String resultAsJSON = mapper.writeValueAsString(result);
+		
+		Mockito.when(service.getByGenre("R&B")).thenReturn(result);
+		
+		mvc.perform(get("/project/getByGenre/R&B")
+			.contentType(MediaType.APPLICATION_JSON))
+			.andExpect(status().isOk())
+			.andExpect(content().json(resultAsJSON));
+	}
 }
