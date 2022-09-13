@@ -39,6 +39,9 @@ public class MusicControllerIntergrationTest {
 		Music input = new Music("Alessia Cara", "Scars to Your Beautiful", "Pop", "2015");
 		String inputAsJSON = mapper.writeValueAsString(input);
 		
+		Music response = new Music(2L, "Alessia Cara", "Scars to Your Beautiful", "Pop", "2015");
+		String responseAsJSON = mapper.writeValueAsString(response);
+		
 	}
 	
 	@Test
