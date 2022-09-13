@@ -2,6 +2,7 @@ package com.BAE.main.services;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -106,6 +107,12 @@ public class MusicServiceUnitTest {
 		Mockito.when(repo.saveAndFlush(response)).thenReturn(response);
 				
 		assertEquals(response,service.update(1L, input));
+	}
+	
+	@Test
+	public void deleteTrueTest() throws Exception{
+		Mockito.when(repo.existsById(1L)).thenReturn(false);
+		assertTrue(service.delete(1L));
 	}
 
 }
