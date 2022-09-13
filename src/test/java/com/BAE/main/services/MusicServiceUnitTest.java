@@ -26,6 +26,8 @@ public class MusicServiceUnitTest {
 		Music input = new Music("Alessia Cara", "Scars to Your Beautiful", "Pop", "2015");
 		Music result = new Music(2L,"Alessia Cara", "Scars to Your Beautiful", "Pop", "2015");
 		
+		Mockito.when(repo.saveAndFlush(input)).thenReturn(result);
+		
 		
 	}
 
