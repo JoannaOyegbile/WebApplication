@@ -1,8 +1,12 @@
 package com.BAE.main.controllers;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -44,5 +48,20 @@ public class MusicControllerUnitTest {
 				.content(inputAsJSON))
 				.andExpect(status().isCreated())
 				.andExpect(content().json(responseAsJSON));
+	}
+	
+	@Test
+	public void gellAllTest() throws Exception {
+		List<Music> result = new ArrayList<>();
+		result.add(new Music(1L, "Leona Lewis", "Bleeding Love", "R&B", "2007"));
+		
+		String resultAsJSON = mapper.writeValueAsString(result);
+		
+		Mockito.when(service.getAll()).thenReturn(result);
+		
+		mvc.perform(get("/project/getAll")
+			.contentType(MediaType.APPLICATION_JSON))
+			.andExpect(status().isOk())
+			.andExpect(content().json(resultAsJSON));
 	}
 }
