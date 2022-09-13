@@ -85,5 +85,14 @@ public class MusicServiceUnitTest {
 		assertEquals(result, service.getByReleaseDate("2007"));
 	}
 	
+	@Test
+	public void getByGenre() throws Exception{
+		List<Music> result = new ArrayList<>();
+		result.add(new Music(1L, "Leona Lewis", "Bleeding Love", "R&B", "2007"));
+
+		Mockito.when(repo.findMusicByGenre("R&B")).thenReturn(result);
+		assertEquals(result, service.getByGenre("R&B"));
+	}
+	
 
 }
