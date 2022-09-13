@@ -1,0 +1,1 @@
+INSERT INTO `music`(`artist_name`, `genre`, `release_date`, `song_name`) VALUES('Leona Lewis', 'R&B', '2007', 'Bleeding Love');
