@@ -94,5 +94,18 @@ public class MusicServiceUnitTest {
 		assertEquals(result, service.getByGenre("R&B"));
 	}
 	
+	@Test
+	public void updateTest() throws Exception{
+		
+		Music input = new Music("The Greatest Showman", "Rewrite the Stars", "Musical", "2017");
+		Optional<Music> existing = Optional.of(new Music(1L, "Leona Lewis", "Bleeding Love", "R&B", "2007"));
+		Music response = new Music(1L, "The Greatest Showman", "Rewrite the Stars", "Musical", "2017");
+		
+				
+		Mockito.when(repo.findById(1L)).thenReturn(existing);
+		Mockito.when(repo.saveAndFlush(response)).thenReturn(response);
+				
+		assertEquals(response,service.update(1L, input));
+	}
 
 }
