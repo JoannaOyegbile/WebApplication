@@ -17,7 +17,7 @@ import com.BAE.main.entities.Music;
 import com.BAE.main.services.MusicService;
 
 @RestController
-@RequestMapping("/music")
+@RequestMapping("/project")
 public class MusicController {
 	
 	private MusicService service;
