@@ -134,7 +134,7 @@ public class MusicControllerUnitTest {
 		
 		String resultAsJSON = mapper.writeValueAsString(result);
 		
-		Mockito.when(service.getByGenre("Bleeding Love")).thenReturn(result);
+		Mockito.when(service.getBySongName("Bleeding Love")).thenReturn(result);
 		
 		mvc.perform(get("/project/getBySongName/Bleeding Love")
 			.contentType(MediaType.APPLICATION_JSON))
