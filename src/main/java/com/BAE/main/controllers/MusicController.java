@@ -61,7 +61,7 @@ public class MusicController {
 	
 	@GetMapping("/getBySongName/{songName}")
 	public List<Music> getBySongName(@PathVariable String songName) {
-		return service.getByGenre(songName);
+		return service.getBySongName(songName);
 	}
 	
 	// Put request (UPDATE)
