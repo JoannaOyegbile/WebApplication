@@ -45,7 +45,10 @@ public class MusicControllerIntergrationTest {
 		
 		String resultAsJSON = mapper.writeValueAsString(result);
 		
-		
+		mvc.perform(get("/project/getAll")
+			.contentType(MediaType.APPLICATION_JSON))
+			.andExpect(status().isOk())
+			.andExpect(content().json(resultAsJSON));
 	}
 
 }
