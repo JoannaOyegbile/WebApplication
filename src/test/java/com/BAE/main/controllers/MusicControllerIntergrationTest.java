@@ -76,5 +76,18 @@ public class MusicControllerIntergrationTest {
 			.andExpect(status().isOk())
 			.andExpect(content().json(resultAsJSON));
 	}
+	
+	@Test
+	public void getByReleaseDateTest() throws Exception{
+		List<Music> result = new ArrayList<>();
+		result.add(new Music(1L, "The Greatest Showman", "This is me", "Musical", "2017"));
+		
+		String resultAsJSON = mapper.writeValueAsString(result);
+		
+		mvc.perform(get("/music/getByReleaseDate/2017")
+			.contentType(MediaType.APPLICATION_JSON))
+			.andExpect(status().isOk())
+			.andExpect(content().json(resultAsJSON));
+	}
 
 }
