@@ -136,7 +136,7 @@ public class MusicControllerUnitTest {
 		
 		Mockito.when(service.getByGenre("Bleeding Love")).thenReturn(result);
 		
-		mvc.perform(get("/project/getBySongNameTest/Bleeding Love")
+		mvc.perform(get("/project/getBySongName/Bleeding Love")
 			.contentType(MediaType.APPLICATION_JSON))
 			.andExpect(status().isOk())
 			.andExpect(content().json(resultAsJSON));
