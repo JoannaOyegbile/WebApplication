@@ -43,7 +43,9 @@ public class MusicControllerIntergrationTest {
 		List<Music> result = new ArrayList<>();
 		result.add(new Music(1L, "The Greatest Showman", "This is me", "Musical", "2017"));
 		
+		String resultAsJSON = mapper.writeValueAsString(result);
 		
+	
 	}
 
 }
