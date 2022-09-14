@@ -1,0 +1,25 @@
+#formDiv{
+    width: 25%;
+    border: solid 4px darkolivegreen;
+    display: inline-grid;
+    margin-top: 2%;
+    margin-left: 2%;
+    padding: 10px;
+    
+}
+#resultsDiv{
+    width: 50%;
+    border: 2px solig green;
+    width: 60%;
+    display: inline-grid;
+    margin-top: 2%;
+    margin-left: 2%;
+    padding: 10px;
+
+}
+#navbar{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: auto;
+    display: flex;
+    align-items: center;
+}
