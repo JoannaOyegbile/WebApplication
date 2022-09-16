@@ -125,7 +125,7 @@ java - jar WebApplication-0.0.1-SNAPSHOT.jar
   * This would run the **Music controller**bclass alone to test its methods. 
 
 ### **Service test**
-* To run integration test:
+* To run servvice test:
   * Go to **_src/test/java/com.BAE.main.service package._**
   * Locate **MusicServiceUnitTest** file and **_Right click > Run as > JUnit test_**
   * This would run the **Music service** class alone to test its methods. 
